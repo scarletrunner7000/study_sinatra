@@ -1,6 +1,18 @@
 require 'sinatra'
 require 'sinatra/reloader'
 
+before do
+  @author = "hoge@gmail.com"
+end
+
+before '/admin/*' do
+  @msg = "admin area!!"
+end
+
+after do
+  logger.info "page displayed successfully"
+end
+
 
 ## url バラメータ
 
@@ -22,7 +34,7 @@ end
 ## テンプレートエンジン
 get '/' do
   @title = "main index"
-  @content = "main content"
+  @content = "main content by " + @author
   erb :index
 end
 
