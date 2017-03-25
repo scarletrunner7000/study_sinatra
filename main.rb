@@ -13,6 +13,14 @@ after do
   logger.info "page displayed successfully"
 end
 
+helpers do
+
+  def strong(s)
+    "<strong>#{s}</strong>"
+  end
+
+end
+
 
 ## url バラメータ
 
@@ -40,7 +48,7 @@ end
 
 get '/about' do
   @title = "about this page"
-  @content = "this page is ..."
+  @content = "this page is ... by " + strong(@author)
   @email = "hoge@gmail.com"
   erb :about
 end
