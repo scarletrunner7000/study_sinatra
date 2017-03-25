@@ -19,3 +19,14 @@ get %r{/users/([0-9]*)} do |user_id|
   "user id = #{user_id}"
 end
 
+## テンプレートエンジン
+get '/' do
+  @name = "world"
+  erb :index
+end
+
+get '/:name' do |n|
+  @name = n
+  erb :index
+end
+
