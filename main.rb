@@ -21,12 +21,15 @@ end
 
 ## テンプレートエンジン
 get '/' do
-  @name = "world"
+  @title = "main index"
+  @content = "main content"
   erb :index
 end
 
-get '/:name' do |n|
-  @name = n
-  erb :index
+get '/about' do
+  @title = "about this page"
+  @content = "this page is ..."
+  @email = "hoge@gmail.com"
+  erb :about
 end
 
